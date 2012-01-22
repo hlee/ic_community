@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @lesson.title
+%p
+  %b Descreption:
+  = @lesson.descreption
+%p
+  %b Feedback:
+  = @lesson.feedback_id
+%p
+  %b Instructor:
+  = @lesson.instructor_id
+%p
+  %b C level:
+  = @lesson.c_level
+%p
+  %b Begin time:
+  = @lesson.begin_time
+%p
+  %b End time:
+  = @lesson.end_time
+%p
+  %b Room:
+  = @lesson.room
+
+= link_to 'Edit', edit_lesson_path(@lesson)
+\|
+= link_to 'Back', lessons_path

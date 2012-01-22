@@ -1,0 +1,33 @@
+%h1 Listing lessons
+
+%table
+  %tr
+    %th Title
+    %th Descreption
+    %th Feedback
+    %th Instructor
+    %th C level
+    %th Begin time
+    %th End time
+    %th Room
+    %th
+    %th
+    %th
+
+  - @lessons.each do |lesson|
+    %tr
+      %td= lesson.title
+      %td= lesson.descreption
+      %td= lesson.feedback_id
+      %td= lesson.instructor_id
+      %td= lesson.c_level
+      %td= lesson.begin_time
+      %td= lesson.end_time
+      %td= lesson.room
+      %td= link_to 'Show', lesson
+      %td= link_to 'Edit', edit_lesson_path(lesson)
+      %td= link_to 'Destroy', lesson, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Lesson', new_lesson_path

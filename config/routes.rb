@@ -1,4 +1,10 @@
 IcCommunity::Application.routes.draw do
+  resources :feedbacks
+
+  resources :instructors
+
+  resources :lessons
+
   #get \"users\/show\"
 
   root :to => "home#index"

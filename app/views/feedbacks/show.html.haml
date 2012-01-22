@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Rate:
+  = @feedback.rate
+%p
+  %b Content:
+  = @feedback.content
+%p
+  %b User:
+  = @feedback.user_id
+%p
+  %b Lesson:
+  = @feedback.lesson_id
+
+= link_to 'Edit', edit_feedback_path(@feedback)
+\|
+= link_to 'Back', feedbacks_path
