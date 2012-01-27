@@ -1,0 +1,34 @@
+%table
+  %tr
+    %th Title
+    //%th Descreption
+    %th Feedback
+    %th Instructor
+    %th level
+    %th Time Range
+    //%th End time
+    %th Room
+    %th 
+      %span#w_num{title: 'Number of the member who will take the class'} w_num
+    %th 
+    %th
+
+  - @lessons.each do |lesson|
+    %tr
+      %td= lesson.title
+      //%td= lesson.descreption
+      %td= lesson.feedbacks.count
+      %td= lesson.instructor.name#lesson.instructor_id
+      %td= lesson.c_level
+      %td= time_range lesson
+      //%td= lesson.end_time.strftime("%T")
+      %td= lesson.room
+      %td.users_count{:data_count => "#{lesson.planed_users.count}"}
+        = lesson.planed_users.count
+      %td= link_to 'Edit', edit_lesson_path(lesson)
+      - p_flag = lesson_planed? lesson, current_user
+      %td{:data_lesson_id => "#{lesson.id}", :data_p_flag => "#{p_flag}"}
+        = check_box_tag "lesson_#{lesson.id}", 'take', p_flag
+
+%br
+= current_user.name

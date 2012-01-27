@@ -8,6 +8,8 @@ IcCommunity::Application.routes.draw do
   #get \"users\/show\"
 
   root :to => "home#index"
+  get 'home/schedule_lesson'
+  put 'home/plan_lesson'
 
   devise_for :users
   resources :users, :only => :show
